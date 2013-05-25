@@ -2,12 +2,12 @@ require "bundler/capistrano"
 
 server "54.214.242.160", :web, :app, :db, primary: true
 
-#set :ssh_options, {:forward_agent => true}
+set :ssh_options, {:forward_agent => true}
 set :application, "blog"
 set :user, "felipillo"
 set :deploy_to, "/home/#{user}/#{application}"
-#set :deploy_via, :remote_cache
-set :deploy_via, :copy
+set :deploy_via, :remote_cache
+#set :deploy_via, :copy
 set :use_sudo, false
 
 set :scm, "git"
