@@ -14,8 +14,10 @@ set :scm, "git"
 set :repository, "git@github.com:friveroll/#{application}.git"
 set :branch, "master"
 
+
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "aws")]
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
